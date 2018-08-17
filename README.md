@@ -14,6 +14,3 @@
 
 ##### *Development* -> Set of commands to use during project development(e.g. migrations)
 
-
-
-> *Global Synergy Solutions, Inc*
