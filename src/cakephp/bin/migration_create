@@ -1,0 +1,4 @@
+#! /bin/bash
+read -p 'Table Name: ' table
+read -p 'Column:Type: ' columns
+bin/cake bake migration "Create${table} ${columns}"

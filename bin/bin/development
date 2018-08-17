@@ -1,0 +1,68 @@
+#! /bin/bash
+echo '
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+                Development Commands
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ Select from the following set of commands:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+                   DESCRIPTIONS
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+1) Create Seed        => Migrate all acl tables
+2) Migrate Seed       => Create migration file
+3) Migrate Acl Tables => Migrate all acl tables
+4) Migration Create   => Create migration file
+5) Migration Migrate  => Run all migrations
+6) Update ACL         => Update acl tables
+7) Back               => Return to bin/gss panel
+8) Quit               => Close the panel
+= = = = = = = = = = = = = = = = = = = = = = = = = =  
+'
+PS3='Please enter the number of your choice: '
+development[0]="Create Seed"
+development[1]="Migrate Seed"
+development[2]="Migrate Acl Tables"
+development[3]="Migration Create"
+development[4]="Migration Migrate"
+development[5]="Update ACL"
+development[6]="Back"
+development[7]="Quit"
+cd `dirname $0`/../../
+select opt in "${development[@]}"
+do
+    case $opt in
+        "Create Seed")
+            bash ops/docker/cakephp/development/bin/exec "seed_create"
+            break
+            ;;
+        "Migrate Seed")
+            bash ops/docker/cakephp/development/bin/exec "seed_migrate"
+            break
+            ;;
+        "Migrate Acl Tables")
+            bash ops/docker/cakephp/development/bin/exec "migrate_acl_tables"
+            break
+            ;;
+        "Migration Create")
+            bash ops/docker/cakephp/development/bin/exec "migration_create"
+            break
+            ;;
+        "Migration Migrate")
+            bash ops/docker/cakephp/development/bin/exec "migration_migrate"
+            break
+            ;;
+        "Update ACL")
+            bash ops/docker/cakephp/development/bin/exec "update_acl"
+            break
+            ;;
+        "Back")
+            bash bin/gss
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

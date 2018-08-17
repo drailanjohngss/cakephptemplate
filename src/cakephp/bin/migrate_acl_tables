@@ -1,0 +1,3 @@
+#! /bin/bash
+bin/cake migrations rollback -p Acl
+bin/cake migrations migrate -p Acl

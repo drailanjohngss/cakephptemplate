@@ -1,0 +1,46 @@
+#! /bin/bash
+echo '
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+                 MkDocs Commands
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ Select from the following set of commands:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+                   DESCRIPTIONS
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+1) Mkdocs serve  => Build and run mkdocs container
+2) Mkdocs build  => Build css, html, js files
+3) Mkdocs logs   => Show container logs
+4) Back          => Return to bin/gss panel
+5) Quit          => Close the panel
+= = = = = = = = = = = = = = = = = = = = = = = = = = 
+'
+PS3='Please enter the number of your choice: '
+mkdocs=("Mkdocs serve" "Mkdocs build" "Mkdocs logs" "Back" "Quit")
+cd `dirname $0`/../../
+select opt in "${mkdocs[@]}"
+do
+    case $opt in
+        "Mkdocs serve")
+            bash ops/docker/mkdocs/bin/serve
+            break
+            ;;
+        "Mkdocs build")
+            bash ops/docker/mkdocs/bin/build
+            break
+            ;;
+        "Mkdocs logs")
+            bash ops/docker/mkdocs/bin/logs
+            break
+            ;;
+        "Back")
+            bash bin/gss
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

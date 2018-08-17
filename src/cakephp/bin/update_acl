@@ -1,0 +1,3 @@
+#! /bin/bash
+
+bin/cake update_acl all

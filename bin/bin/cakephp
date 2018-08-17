@@ -1,0 +1,44 @@
+#! /bin/bash
+echo '
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+                 CakePHP Commands
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ Select from the following set of commands:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+                   DESCRIPTIONS
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+1) Docker Compose     => Build and run containers
+2) Container Logs     => Show container logs
+3) Back               => Return to bin/gss panel
+4) Quit               => Close the panel
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+'
+PS3='Please enter the number of your choice: '
+cakephp[0]="Docker Compose"
+cakephp[1]="Container Logs"
+cakephp[2]="Back"
+cakephp[3]="Quit"
+cd `dirname $0`/../../
+select opt in "${cakephp[@]}"
+do
+    case $opt in
+        "Docker Compose")
+            bash ops/docker/cakephp/development/bin/compose_up
+            break
+            ;;
+        "Container Logs")
+            bash ops/docker/cakephp/development/bin/logs
+            break
+            ;;
+        "Back")
+            bash bin/gss
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

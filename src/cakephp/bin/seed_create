@@ -1,0 +1,4 @@
+#! /bin/bash
+
+read -p 'Table Name: ' table
+bin/cake bake seed --data $table

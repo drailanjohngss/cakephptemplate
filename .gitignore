@@ -1,0 +1,67 @@
+# Win
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Vim
+*.sw?
+*~
+
+# Eclipse
+.project
+.settings
+.buildpath
+
+# PhpStorm
+.idea/
+
+# direnv
+.envrc
+
+# CakePHP
+[Cc]onfig/database.php
+src/cakephp/webroot/build/*
+src/cakephp/image/*
+src/cakephp/[Cc]onfig/database.php
+src/cakephp/[Cc]onfig/profile.php
+src/cakephp/vendor/*
+src/cakephp/config/app.php
+src/cakephp/tmp/*
+src/cakephp/logs/*
+!empty
+
+# Phing build results
+src/cakephp/bin/analyze/ci/build/
+
+# composer
+src/cakephp/Vendor/*
+src/cakephp/Plugin/*
+
+# gulp
+src/cakephp/webroot/*.js
+src/cakephp/webroot/*.css
+src/cakephp/webroot/*.map
+src/front/gulp/core.*
+node_modules/
+bower_components/
+.csscomb.json
+
+# schemaspy
+src/cakephp/webroot/schemaspy/*
+# MkDocs
+src/mkdocs/site
+
+src/cakephp/webroot/docs/*
+doc/documentation/redpen.md
+# phpDocumentor
+src/cakephp/webroot/phpdoc/*
+# sonarqube
+.sonar/
+# ansible
+ops/ansible/bin/key_path
+# php-cs-fixer
+.php_cs.cache
+/.gtm/
+# editorconfig
+.editorconfig

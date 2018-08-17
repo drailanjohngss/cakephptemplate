@@ -1,0 +1,56 @@
+#! /bin/bash
+PS3='Please enter the number of your choice: '
+color='\033[0;96m'
+colorEnd='\033[0m'
+
+if [[ "$(uname)" == 'Linux' ]];
+then
+    color='\e[1;36m'
+    colorEnd='\e[0m'
+fi
+
+options[0]="Development"
+options[1]="Cakephp"
+options[2]="Mkdocs"
+options[3]="Quit"
+
+cd `dirname $0`/../
+echo -e "${color}
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+            Global Synergy Solutions
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ Select from the following set of commands:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+                   DESCRIPTIONS
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+1) Development => Show all development tools
+2) Cakephp     => Show docker commands for cakephp
+3) Mkdocs      => Show all mkdocs commands
+4) Quit        => Close the panel
+= = = = = = = = = = = = = = = = = = = = = = = = = =
+"
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Development")
+            bash bin/bin/development
+            break
+            ;; 
+        "Cakephp")
+            bash bin/bin/cakephp
+            break
+            ;;  
+        "Mkdocs")
+            bash bin/bin/mkdocs
+            break
+            ;; 
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+echo -e "${colorEnd}"
